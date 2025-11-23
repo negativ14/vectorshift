@@ -6,6 +6,7 @@ import { FileText } from "lucide-react";
 import { IconBrandOpenai } from "@tabler/icons-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import GradientLines from "./GradientLines";
 
 export default function EcosystemCodeBox() {
   const [box1, setBox1] = useState<boolean>(false);
@@ -87,21 +88,36 @@ from vectorshift.pipeline import *`;
                 title={box.title}
                 description={box.description}
                 icon={box.icon}
+                hovered={boxStates[index].hovered}
+                setHovered={boxStates[index].setHovered}
               />
             ))}
-
-            <div className="absolute hidden lg:block w-px h-20 bg-muted translate-x-30 translate-y-71 lg:translate-x-30 lg:translate-y-71 overflow-hidden rotate-180">
-              <div className="w-px h-20 bg-linear-to-t from-primary to-primary/0 animate-flow" style={{ animationDelay: "0.3s" }}/>
-            </div>
-
-            <div className="absolute hidden lg:block w-px h-20 bg-muted translate-x-30 translate-y-25.5 lg:translate-x-30 lg:translate-y-25.5 overflow-hidden">
-              <div className="w-px h-20 bg-linear-to-t from-primary to-primary/0 animate-flow" style={{ animationDelay: "0.9s" }}/>
-            </div>
           </div>
+
+          <GradientLines
+            className="h-20 translate-x-30 translate-y-71 lg:translate-x-30 lg:translate-y-71 rotate-180"
+            gradientClassName="h-10"
+            delay="0.3s"
+          />
+
+          <GradientLines
+            className="h-20 translate-x-30 translate-y-25.5 lg:translate-x-30 lg:translate-y-25.5"
+            delay="0.9s"
+            gradientClassName="h-10"
+          />
 
           <div className="absolute hidden lg:block w-px h-31 bg-muted translate-x-64.5 translate-y-57 lg:translate-x-66.5 lg:translate-y-56 overflow-hidden -rotate-15">
-            <div className="w-px h-20 bg-linear-to-t from-primary to-primary/0 animate-flow" style={{ animationDelay: "1.1s" }} />
+            <div
+              className="w-px h-20 bg-linear-to-t from-primary to-primary/0 animate-flow"
+              style={{ animationDelay: "1.1s" }}
+            />
           </div>
+
+          <GradientLines
+            className="h-31 translate-x-64.5 translate-y-57 lg:translate-x-66.5 lg:translate-y-56 -rotate-15"
+            delay="1.1s"
+            gradientClassName="h-10"
+          />
 
           <div className="flex flex-col gap-6 md:gap-20 md:mt-30 relative">
             {rightColumnBoxes.map((box, index) => (
@@ -110,12 +126,16 @@ from vectorshift.pipeline import *`;
                 title={box.title}
                 description={box.description}
                 icon={box.icon}
+                hovered={boxStates[index + 3].hovered}
+                setHovered={boxStates[index + 3].setHovered}
               />
             ))}
 
-            <div className="absolute hidden lg:block w-px h-20 bg-muted translate-x-30 translate-y-25.5 lg:translate-x-30 lg:translate-y-25.5 overflow-hidden">
-              <div className="w-px h-20 bg-linear-to-t from-primary to-primary/0 animate-flow" style={{ animationDelay: "0.5s" }} />
-            </div>
+            <GradientLines
+              className="h-20 translate-x-30 translate-y-25.5 lg:translate-x-30 lg:translate-y-25.5"
+              delay="0.5s"
+              gradientClassName="h-15"
+            />
           </div>
 
           <div className="flex flex-col gap-4"></div>
@@ -182,20 +202,32 @@ export const NoCodeBox = ({
   icon,
   description,
   className,
+  hovered,
+  setHovered,
 }: {
   title: string;
   icon?: React.ReactNode;
   description: string;
   className?: string;
+  hovered: boolean;
+  setHovered: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
     <div
       className={cn(
-        "border rounded-lg flex flex-col overflow-hidden",
+        "border rounded-lg flex flex-col overflow-hidden relative z-10",
         className
       )}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <h3 className="text-lg font-medium tracking-tight text-background bg-foreground py-2 text-center font-poppins px-4 rounded-t-lg">
+      <h3
+        className={cn(
+          "text-lg font-medium tracking-tight text-background bg-foreground py-2 text-center font-poppins px-4 rounded-t-lg",
+          hovered && "bg-primary text-foreground",
+          "transition-all duration-300 ease-in-out"
+        )}
+      >
         {title}
       </h3>
 
@@ -231,7 +263,9 @@ export const SyntaxHighLightedCode = ({
       }}
       className={cn(
         "rounded-lg text-sm transition-colors relative",
-        index !== 0 && hovered && "bg-green-400/10 border-[0.5px] border-green-400"
+        index !== 0 &&
+          hovered &&
+          "bg-green-400/10 border-[0.5px] border-green-400"
       )}
     >
       <div className="relative z-10">
