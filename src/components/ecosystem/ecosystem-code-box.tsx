@@ -6,7 +6,7 @@ import { FileText } from "lucide-react";
 import { IconBrandOpenai } from "@tabler/icons-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import GradientLines from "./GradientLines";
+import GradientLines from "./gradient-line";
 
 export default function EcosystemCodeBox() {
   const [box1, setBox1] = useState<boolean>(false);
@@ -23,12 +23,12 @@ export default function EcosystemCodeBox() {
     {
       title: "OpenAI LLM",
       description: "Model: gpt-4.0-turbo (processes input)",
-      icon: <IconBrandOpenai />,
+      icon: <IconBrandOpenai className="size-5 text-primary" />,
     },
     {
       title: "Results",
       description: "Generates output",
-      icon: <FileText />,
+      icon: <FileText className="size-5 text-primary" />,
     },
   ];
 
@@ -40,7 +40,7 @@ export default function EcosystemCodeBox() {
     {
       title: "File loader",
       description: "Reads the input file",
-      icon: <FileText />,
+      icon: <FileText className="size-5 text-primary" />,
     },
   ];
 
@@ -95,26 +95,19 @@ from vectorshift.pipeline import *`;
           </div>
 
           <GradientLines
-            className="h-20 translate-x-30 translate-y-71 lg:translate-x-30 lg:translate-y-71 rotate-180"
+            className="h-20 lg:translate-x-30 lg:translate-y-75 rotate-180"
             gradientClassName="h-10"
             delay="0.3s"
           />
 
           <GradientLines
-            className="h-20 translate-x-30 translate-y-25.5 lg:translate-x-30 lg:translate-y-25.5"
+            className="h-20 lg:translate-x-30 lg:translate-y-27.5"
             delay="0.9s"
             gradientClassName="h-10"
           />
 
-          <div className="absolute hidden lg:block w-px h-31 bg-muted translate-x-64.5 translate-y-57 lg:translate-x-66.5 lg:translate-y-56 overflow-hidden -rotate-15">
-            <div
-              className="w-px h-20 bg-linear-to-t from-primary to-primary/0 animate-flow"
-              style={{ animationDelay: "1.1s" }}
-            />
-          </div>
-
           <GradientLines
-            className="h-31 translate-x-64.5 translate-y-57 lg:translate-x-66.5 lg:translate-y-56 -rotate-15"
+            className="h-24 lg:translate-x-70.5 lg:translate-y-60.5 -rotate-20"
             delay="1.1s"
             gradientClassName="h-10"
           />
@@ -132,7 +125,7 @@ from vectorshift.pipeline import *`;
             ))}
 
             <GradientLines
-              className="h-20 translate-x-30 translate-y-25.5 lg:translate-x-30 lg:translate-y-25.5"
+              className="h-20 translate-x-30 translate-y-25.5 lg:translate-x-30 lg:translate-y-21.5"
               delay="0.5s"
               gradientClassName="h-15"
             />
@@ -223,7 +216,7 @@ export const NoCodeBox = ({
     >
       <h3
         className={cn(
-          "text-lg font-medium tracking-tight text-background bg-foreground py-2 text-center font-poppins px-4 rounded-t-lg",
+          "text-lg font-medium tracking-tight text-background bg-foreground py-1 text-center font-poppins px-4 rounded-t-lg",
           hovered && "bg-primary text-foreground",
           "transition-all duration-300 ease-in-out"
         )}
@@ -231,10 +224,10 @@ export const NoCodeBox = ({
         {title}
       </h3>
 
-      <div className="flex items-center gap-2 py-4 px-4">
+      <div className="flex items-center gap-2 py-3 px-4">
         <span className="shrink-0">{icon}</span>
 
-        <SubHeading className="text-md md:text-md lg:text-md overflow-hidden truncate line-clamp-2">
+        <SubHeading className="text-md md:text-md lg:text-md overflow-hidden line-clamp-2">
           {description}
         </SubHeading>
       </div>
