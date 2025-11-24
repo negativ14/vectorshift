@@ -20,6 +20,8 @@ import MongoDBIcon from "@/assets/icons/MongoDBIcon";
 import NotionIcon from "@/assets/icons/NotionIcon";
 import MetaIcon from "@/assets/icons/MetaIcon";
 import { motion } from "motion/react";
+import { AnimatedText } from "../animated-text";
+import GradientLines from "./gradient-line";
 
 const container = {
   idle: {},
@@ -54,13 +56,30 @@ export function EcosystemCards() {
       </EcosystemCardSkeleton>
 
       <EcosystemCardSkeleton title="Agents: execute complex tasks">
-        <div className="pl-10 pt-8">
+        <div className="pl-10">
+          <GradientLines
+            className="h-full w-px translate-x-40 -translate-y-52 z-10 rotate-90"
+            gradientClassName="h-20"
+          />
+          <GradientLines
+            className="h-full w-px translate-x-40 -translate-y-48 z-10 rotate-90"
+            gradientClassName="h-20"
+          />
+
+          <GradientLines
+            className="h-full w-px -translate-y-15.5 -z-10"
+            gradientClassName="h-20"
+          />
+          <GradientLines
+            className="h-full w-px -translate-y-15.5 translate-x-5 -z-10"
+            gradientClassName="h-20"
+          />
           <Card2Content />
         </div>
       </EcosystemCardSkeleton>
 
       <EcosystemCardSkeleton title="Search: use the optimal data retrieval method">
-        <div className="pl-10 pt-8">
+        <div>
           <Card3Content />
         </div>
       </EcosystemCardSkeleton>
@@ -85,11 +104,11 @@ export function EcosystemCardSkeleton({
       )}
     >
       {" "}
-      <Heading className="px-4 py-4" variant="small">
+      <Heading className="px-4 py-4 bg-none" variant="small">
         {title}
       </Heading>
-      <div className="mask-b-from-50%">{children}</div>
-      <p className="absolute bottom-5 left-5 flex items-center text-shadow-lg">
+      <div>{children}</div>
+      <p className="absolute bottom-5 left-5 flex items-center text-shadow-lg z-10">
         Learn more <ChevronRight className="mt-0.5 size-4.5" />
       </p>
       <div className="absolute -z-10 inset-0 bg-linear-to-br from-neutral-100/10 to-transparent" />
@@ -99,8 +118,8 @@ export function EcosystemCardSkeleton({
 
 export function Card1Content() {
   return (
-    <div className="flex flex-col items-end gap-8 max-h-96">
-      <div className="pt-4 scale-[1.2] border-l border-t border-dashed rounded-tl-xl mt-4">
+    <div className="flex flex-col items-end gap-8 max-h-80 mask-b-from-50%">
+      <div className="pt-4 border-l border-t border-dashed rounded-tl-xl mt-4">
         <div className="flex flex-wrap justify-center w-fit gap-1 border p-1 rounded-xl bg-neutral-950/80 ml-8">
           <IconBox
             icon={Brain}
@@ -133,10 +152,67 @@ export function Card1Content() {
         </div>
       </div>
 
-      <ChatBox className="translate-x-11 rounded-xl" />
+      <ChatBox className="translate-x-10 -translate-y-15 rounded-xl scale-[0.8]" />
     </div>
   );
 }
+
+export function Card3Content() {
+  return (
+    <div className="perspective-[4000px] absolute inset-0 mask-b-from-50%">
+      <div
+        className="bg-neutral-950 px-6 py-8 rounded-xl translate-y-28 translate-x-5 scale-[0.9] group-hover:scale-[1] transition-all duration-500 ease-in-out"
+        style={{
+          transform: "rotateY(20deg) rotateX(10deg) rotateZ(-10deg)",
+        }}
+      >
+        <div className="flex items-center gap-4 px-4 py-2 bg-neutral-500/20 rounded-full relative group">
+          <Search className="size-4" /> <span>Product launch</span>
+        </div>
+        <motion.div
+          className="divide-y pt-2 ml-2"
+          variants={container}
+          initial="idle"
+          whileHover="hover"
+        >
+          {searchArray.map((itemData, index) => (
+            <motion.div key={index} variants={item}>
+              <SearchTag icon={itemData.icon} search={itemData.search} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <p className="text-xl font-poppins font-medium group-hover:opacity-0 absolute top-42 right-38 animate-bounce pointer-events-none">
+          {" "}
+          Hover Me!!
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export function SearchTag({
+  icon: Icon,
+  search,
+}: {
+  icon: ElementType;
+  search: string;
+}) {
+  return (
+    <div className="flex items-center gap-2 py-2">
+      <Icon className="size-4" />
+      <p className="text-xs text-muted-foreground">{search}</p>
+    </div>
+  );
+}
+
+const searchArray = [
+  { icon: AtlassianIcon, search: "Product launch strategy 2023" },
+  { icon: DriveIcon, search: "Product launch checklist" },
+  { icon: MongoDBIcon, search: "Marketing for product launch" },
+  { icon: NotionIcon, search: "Product release notes" },
+  { icon: MetaIcon, search: "Product launch advertisement" },
+];
 
 export function ChatBox({ className }: { className?: string }) {
   const messages = [
@@ -150,8 +226,8 @@ export function ChatBox({ className }: { className?: string }) {
     },
     {
       sender: "bot",
-      text: `Sure, Checking 
-      products pricing... 
+      text: `Sure,                                                    
+      Checking products pricing...            
       compiling results`,
     },
     {
@@ -203,9 +279,7 @@ export function ChatBox({ className }: { className?: string }) {
                     : "bg-neutral-800 text-neutral-100 rounded-tl-sm"
                 )}
               >
-                <p className="text-xs text-poppins leading-relaxed">
-                  {message.text}
-                </p>
+                <AnimatedText text={message.text} />
               </div>
             </div>
           </div>
@@ -237,7 +311,7 @@ export function Card2Content() {
   ];
 
   return (
-    <div className="border bg-neutral-950/80 rounded-tl-xl p-4 max-w-lg">
+    <div className="border bg-neutral-950/80 rounded-tl-xl p-4 scale-[0.9] max-w-lg translate-x-10 translate-y-5 mask-b-from-50%">
       <div className="flex flex-col gap-4">
         {messages.map((message, index) => (
           <div
@@ -290,60 +364,3 @@ export function Card2Content() {
     </div>
   );
 }
-
-export function Card3Content() {
-  return (
-    <div className="perspective-[4000px]">
-      <div
-        className="bg-neutral-950 px-6 py-8 rounded-xl group-hover:scale-[1.1] transition-all duration-500 ease-in-out"
-        style={{
-          transform: "rotateY(20deg) rotateX(10deg) rotateZ(-10deg)",
-        }}
-      >
-        <div className="flex items-center gap-4 px-4 py-2 bg-neutral-500/20 rounded-full relative group">
-          <Search className="size-4" /> <span>Product launch</span>
-        </div>
-        <motion.div
-          className="divide-y pt-2 ml-2"
-          variants={container}
-          initial="idle"
-          whileHover="hover"
-        >
-          {searchArray.map((itemData, index) => (
-            <motion.div key={index} variants={item}>
-              <SearchTag icon={itemData.icon} search={itemData.search} />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <p className="text-xl font-poppins font-medium group-hover:opacity-0 absolute top-42 right-38 animate-bounce pointer-events-none">
-          {" "}
-          Hover Me!!
-        </p>
-      </div>
-    </div>
-  );
-}
-
-export function SearchTag({
-  icon: Icon,
-  search,
-}: {
-  icon: ElementType;
-  search: string;
-}) {
-  return (
-    <div className="flex items-center gap-2 py-2">
-      <Icon className="size-4" />
-      <p className="text-xs text-muted-foreground">{search}</p>
-    </div>
-  );
-}
-
-const searchArray = [
-  { icon: AtlassianIcon, search: "Product launch strategy 2023" },
-  { icon: DriveIcon, search: "Product launch checklist" },
-  { icon: MongoDBIcon, search: "Marketing for product launch" },
-  { icon: NotionIcon, search: "Product release notes" },
-  { icon: MetaIcon, search: "Product launch advertisement" },
-];
