@@ -6,7 +6,7 @@ import { FileText } from "lucide-react";
 import { IconBrandOpenai } from "@tabler/icons-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import GradientLines from "./gradient-line";
+import GradientLines from "../gradient-line";
 
 export default function EcosystemCodeBox() {
   const [box1, setBox1] = useState<boolean>(false);
@@ -97,18 +97,18 @@ from vectorshift.pipeline import *`;
           <GradientLines
             className="h-20 lg:translate-x-30 lg:translate-y-75 rotate-180"
             gradientClassName="h-10"
-            delay="0.3s"
+            delay="0.3"
           />
 
           <GradientLines
             className="h-20 lg:translate-x-30 lg:translate-y-27.5"
-            delay="0.9s"
+            delay="0.9"
             gradientClassName="h-10"
           />
 
           <GradientLines
             className="h-24 lg:translate-x-70.5 lg:translate-y-60.5 -rotate-20"
-            delay="1.1s"
+            delay="1.1"
             gradientClassName="h-10"
           />
 
@@ -126,7 +126,7 @@ from vectorshift.pipeline import *`;
 
             <GradientLines
               className="h-20 translate-x-30 translate-y-25.5 lg:translate-x-30 lg:translate-y-21.5"
-              delay="0.5s"
+              delay="0.5"
               gradientClassName="h-15"
             />
           </div>

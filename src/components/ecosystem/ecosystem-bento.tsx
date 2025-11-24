@@ -21,7 +21,7 @@ import NotionIcon from "@/assets/icons/NotionIcon";
 import MetaIcon from "@/assets/icons/MetaIcon";
 import { motion } from "motion/react";
 import { AnimatedText } from "../animated-text";
-import GradientLines from "./gradient-line";
+import GradientLines from "../gradient-line";
 
 const container = {
   idle: {},
@@ -58,19 +58,23 @@ export function EcosystemCards() {
       <EcosystemCardSkeleton title="Agents: execute complex tasks">
         <div className="pl-10">
           <GradientLines
+            delay="0.2"
             className="h-full w-px translate-x-40 -translate-y-52 z-10 rotate-90"
             gradientClassName="h-20"
           />
           <GradientLines
+            delay="0.6"
             className="h-full w-px translate-x-40 -translate-y-48 z-10 rotate-90"
             gradientClassName="h-20"
           />
 
           <GradientLines
+            delay="0.9"
             className="h-full w-px -translate-y-15.5 -z-10"
             gradientClassName="h-20"
           />
           <GradientLines
+            delay="0.1"
             className="h-full w-px -translate-y-15.5 translate-x-5 -z-10"
             gradientClassName="h-20"
           />
@@ -108,7 +112,7 @@ export function EcosystemCardSkeleton({
         {title}
       </Heading>
       <div>{children}</div>
-      <p className="absolute bottom-5 left-5 flex items-center text-shadow-lg z-10">
+      <p className="absolute bottom-5 left-5 flex items-center text-shadow-lg z-10 cursor-pointer">
         Learn more <ChevronRight className="mt-0.5 size-4.5" />
       </p>
       <div className="absolute -z-10 inset-0 bg-linear-to-br from-neutral-100/10 to-transparent" />

@@ -11,7 +11,7 @@ import { motion } from "motion/react";
 export default function Hero() {
   return (
     <main>
-      <Container className="py-10 md:py-20 lg:py-32 relative">
+      <Container className="py-10 md:py-20 lg:py-32 relative overflow-hidden">
         <Heading className="text-center" as="h1" variant="big">
           The{" "}
           <motion.span

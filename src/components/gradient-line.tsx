@@ -2,11 +2,11 @@ import { cn } from "@/lib/utils";
 
 export default function GradientLines({
   className,
-  delay = Math.random().toString(),
+  delay,
   gradientClassName,
 }: {
   className: string;
-  delay?: string;
+  delay: string;
   gradientClassName?: string;
 }) {
   return (
@@ -21,7 +21,7 @@ export default function GradientLines({
           "w-px h-10 bg-linear-to-t from-primary to-primary/0 animate-flow",
           gradientClassName
         )}
-        style={{ animationDelay: delay }}
+        style={{ animationDelay: `${delay}s` }}
       />
     </div>
   );

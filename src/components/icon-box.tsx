@@ -11,13 +11,14 @@ export default function IconBox({
   icon: ElementType;
   className?: string;
   iconClassName?: string;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "ghost";
   title?: string;
 }) {
   const variants = {
     primary: "bg-foreground",
     secondary: "bg-secondary",
     outline: "border border-px",
+    ghost: "",
   };
   return (
     <span
