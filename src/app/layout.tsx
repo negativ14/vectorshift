@@ -32,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${poppins.variable} ${robotoMono.variable} antialiased`}
       >
         <ThemeProvider

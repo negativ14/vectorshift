@@ -1,4 +1,4 @@
-export default function NotionIcon({ className }: { className: string }) {
+export default function NotionIcon({ className }: { className?: string }) {
   return (
     <svg
       width="24"
