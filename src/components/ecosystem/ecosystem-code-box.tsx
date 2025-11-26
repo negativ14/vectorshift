@@ -80,8 +80,8 @@ from vectorshift.pipeline import *`;
         title="No code"
         description="Build and deploy powerful applications with drag and drop components and customizable deployment interfaces. No coding required. "
       >
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <div className="flex flex-col gap-6 md:gap-20 relative">
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          <div className="flex flex-col gap-6 lg:gap-20 relative">
             {leftColumnBoxes.map((box, index) => (
               <NoCodeBox
                 key={index}
@@ -112,7 +112,7 @@ from vectorshift.pipeline import *`;
             gradientClassName="h-10"
           />
 
-          <div className="flex flex-col gap-6 md:gap-20 md:mt-30 relative">
+          <div className="flex flex-col gap-6 lg:gap-20 lg:mt-30 relative">
             {rightColumnBoxes.map((box, index) => (
               <NoCodeBox
                 key={index}

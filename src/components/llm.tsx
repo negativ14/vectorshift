@@ -121,7 +121,7 @@ export default function LLM() {
             iconClassName="size-10"
             title="MistralIcon"
           />
-          <GridBackground />
+          <GridBackground className="bg-size-[80px_80px]"/>
         </div>
       </Container>
     </div>

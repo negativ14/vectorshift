@@ -8,6 +8,7 @@ import { CircleCheck, MessagesSquare, SmilePlus } from "lucide-react";
 import AvatarPurple from "@/assets/icons/AvatarPurple";
 import AvatarBlond from "@/assets/icons/AvatarBlond";
 import GridBackground from "./grid-background";
+import GradientLines from "./gradient-line";
 
 const productInfo = [
   {
@@ -57,16 +58,8 @@ export default function ProductInfo() {
       </div>
 
       <Container className="border-x relative overflow-hidden">
-        <div
-          className="perspective-[4000px] absolute inset-0 -z-10 opacity-40"
-          style={{
-            transform: "rotateY(20deg) rotateX(40deg) rotateZ(20deg)",
-          }}
-        >
-          <GridBackground />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 py-4 md:py-8 gap-4 relative">
-          <div className="mask-b-from-90%">
+        <div className="grid grid-cols-1 lg:grid-cols-2 py-4 md:py-8 gap-16 relative">
+          <div className="lg:mask-b-from-90%">
             <div className="flex items-center">
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
@@ -100,6 +93,11 @@ export default function ProductInfo() {
             </div>
           </div>
 
+          <GradientLines
+            className="w-px h-[75%] bottom-0 rotate-180 translate-x-152 mask-b-from-50%"
+            delay="0.5"
+          />
+
           {/* second */}
           <div className="mask-b-from-80%">
             <div className="flex items-center">
@@ -116,30 +114,30 @@ export default function ProductInfo() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4 mt-8 border rounded-lg p-4">
+            <div className="flex flex-col gap-4 mt-8 border rounded-lg p-4 relative">
               <div className="flex items-center gap-2">
-                <AvatarPurple />
+                <AvatarPurple className="shrink-0" />
                 <p className="bg-secondary px-2 py-1 rounded-md">
                   I can help answer any questions about our product
                 </p>
               </div>
 
               <div className="flex flex-row-reverse items-center justify-start gap-2">
-                <AvatarBlond />
+                <AvatarBlond className="shrink-0" />
                 <p className="bg-primary/80 px-2 py-1 rounded-md">
                   What are your pricing tiers?
                 </p>
               </div>
 
               <div className="flex items-start gap-4">
-                <AvatarPurple />
+                <AvatarPurple className="shrink-0" />
                 <div className="bg-secondary px-2 py-1 rounded-md flex flex-col gap-2">
                   <p>
                     Sure , we offer 3 pricing tiers based on your usage of the
                     platform.
                   </p>
 
-                  <div className="flex gap-2">
+                  <div className="flex flex-col lg:flex-row gap-2">
                     {plans.map((plan) => (
                       <PlanCard
                         key={plan.planType}
@@ -152,7 +150,7 @@ export default function ProductInfo() {
               </div>
 
               <div className="flex flex-row-reverse items-center justify-start gap-2">
-                <AvatarBlond />
+                <AvatarBlond className="shrink-0" />
                 <p className="bg-primary/80 px-2 py-1 rounded-md">
                   Thank you, which tier do you think works best for us?
                 </p>
@@ -211,7 +209,7 @@ export function AvatarIcon() {
 
 export function PlanCard({ plan, list }: { plan: string; list: string[] }) {
   return (
-    <div className="flex flex-col gap-2 bg-background rounded-lg p-4 my-3">
+    <div className="flex flex-col gap-2 bg-background rounded-lg p-4 lg:my-3">
       <p className="text-sm">{plan}</p>
       <div>
         {list.map((text) => (
@@ -219,7 +217,7 @@ export function PlanCard({ plan, list }: { plan: string; list: string[] }) {
             key={text}
             className="flex items-center gap-2 text-xs text-muted-foreground"
           >
-            <CircleCheck className="size-3 text-primary" />
+            <CircleCheck className="size-3 text-primary shrink-0" />
             {text}
           </li>
         ))}

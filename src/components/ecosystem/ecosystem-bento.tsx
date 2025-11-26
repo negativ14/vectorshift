@@ -103,12 +103,12 @@ export function EcosystemCardSkeleton({
   return (
     <div
       className={cn(
-        "flex flex-col relative overflow-hidden rounded-lg border group",
+        "flex flex-col relative overflow-hidden rounded-lg border group md:max-h-96 ",
         className
       )}
     >
       {" "}
-      <Heading className="px-4 py-4 bg-none" variant="small">
+      <Heading className="px-4 py-4 bg-none md:text-xl" variant="small">
         {title}
       </Heading>
       <div>{children}</div>

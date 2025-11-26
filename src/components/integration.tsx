@@ -121,7 +121,7 @@ export default function Integration() {
             iconClassName="size-10"
             title="Slack"
           />
-          <GridBackground />
+          <GridBackground className="bg-size-[80px_80px]" />
         </div>
       </Container>
     </div>

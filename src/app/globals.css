@@ -137,10 +137,10 @@
     transform: translateY(-100%);
   }
   100% {
-    transform: translateY(500%);
+    transform: translateY(1000%);
   }
 }
 
 .animate-flow {
-  animation: flowLine 1.5s ease-in-out infinite;
+  animation: flowLine 2s ease-in-out infinite;
 }
