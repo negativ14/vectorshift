@@ -5,7 +5,6 @@ import Logo from "./logo";
 import { motion, Transition } from "motion/react";
 import { Button } from "./ui/button";
 import { useState } from "react";
-import ModeToggle from "./ui/theme-toggle";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -39,32 +38,33 @@ export function MobileNavbar() {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <Container className="md:hidden flex items-center justify-between relative">
+    <Container className="lg:hidden flex items-center justify-between relative">
       <Logo />
 
-      <div className="flex items-center">
-        <ModeToggle />
+      <div className="flex items-center relative z-100">
         <Button onClick={() => setOpen(!open)} variant={"ghost"} size={"icon"}>
-          {open ? <X className="size-4"/> : <Menu className="size-4" />}
+          {open ? <X className="size-4" /> : <Menu className="size-4" />}
         </Button>
       </div>
 
       {open && (
-        <div className="absolute min-h-screen w-full translate-y-88 left-0">
+        <div className="absolute min-h-screen w-full translate-y-88 left-0 z-20">
           <div className="absolute inset-0 blur-md" />
 
-          <nav className="flex flex-col gap-4 pt-4">
+          <nav className="flex flex-col gap-4 p-4 bg-neutral-950 translate-y-20">
             {navLinks.map((item, index) => (
               <motion.div
                 initial={{
                   opacity: 0,
                   x: -10,
                   filter: "blur",
+                  height: 0,
                 }}
                 animate={{
                   opacity: 1,
                   x: 16,
                   filter: "blur(0px)",
+                  height: "auto",
                 }}
                 transition={{
                   duration: 0.3,
@@ -93,7 +93,7 @@ export function DesktopNavbar() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <Container className="hidden md:flex justify-between items-center">
+    <Container className="hidden lg:flex justify-between items-center">
       {" "}
       <motion.div
         variants={fadeDown}
@@ -138,7 +138,6 @@ export function DesktopNavbar() {
         transition={transitionProp}
         className="flex items-center gap-2"
       >
-        <ModeToggle />
         <Button variant={"ghost"} className="text-md mr-2">
           Log in
         </Button>

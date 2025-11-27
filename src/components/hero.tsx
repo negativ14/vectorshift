@@ -50,6 +50,7 @@ export default function Hero() {
             alt={"dashboard image"}
             height={1080}
             width={1920}
+            priority
             className="rounded-xl shadow-xl mask-b-from-50% object-cover z-0 border"
           />
 

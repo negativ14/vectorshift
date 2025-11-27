@@ -7,7 +7,6 @@ import AirtableIcon from "@/assets/icons/AirtableIcon";
 import { CircleCheck, MessagesSquare, SmilePlus } from "lucide-react";
 import AvatarPurple from "@/assets/icons/AvatarPurple";
 import AvatarBlond from "@/assets/icons/AvatarBlond";
-import GridBackground from "./grid-background";
 import GradientLines from "./gradient-line";
 
 const productInfo = [
@@ -52,7 +51,7 @@ export default function ProductInfo() {
       </div>
 
       <div className="border-b">
-        <Heading className="md:text-center py-4 md:py-8 border-x mx-auto max-w-7xl">
+        <Heading className="md:text-center py-4 md:py-8 px-4 border-x mx-auto max-w-7xl">
           Leverage AI throughout your company and products
         </Heading>
       </div>

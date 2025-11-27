@@ -59,18 +59,18 @@ export function EcosystemCards() {
         <div className="pl-10">
           <GradientLines
             delay="0.2"
-            className="h-full w-px translate-x-40 -translate-y-52 z-10 rotate-90"
+            className="h-full w-px translate-x-40 -translate-y-50 z-10 rotate-90 block md:hidden lg:block"
             gradientClassName="h-20"
           />
           <GradientLines
             delay="0.6"
-            className="h-full w-px translate-x-40 -translate-y-48 z-10 rotate-90"
+            className="h-full w-px translate-x-40 -translate-y-45 z-10 rotate-90 block md:hidden lg:block"
             gradientClassName="h-20"
           />
 
           <GradientLines
             delay="0.9"
-            className="h-full w-px -translate-y-15.5 -z-10"
+            className="h-full w-px -translate-y-15.5 -z-10 block md:hidden lg:block"
             gradientClassName="h-20"
           />
           <GradientLines
@@ -83,7 +83,7 @@ export function EcosystemCards() {
       </EcosystemCardSkeleton>
 
       <EcosystemCardSkeleton title="Search: use the optimal data retrieval method">
-        <div>
+        <div className="min-h-80">
           <Card3Content />
         </div>
       </EcosystemCardSkeleton>
@@ -156,22 +156,23 @@ export function Card1Content() {
         </div>
       </div>
 
-      <ChatBox className="translate-x-10 -translate-y-15 rounded-xl scale-[0.8]" />
+      <ChatBox className="translate-x-10 md:translate-x-40 lg:translate-x-10 -translate-y-15 rounded-xl scale-[0.8]" />
     </div>
   );
 }
 
 export function Card3Content() {
   return (
-    <div className="perspective-[4000px] absolute inset-0 mask-b-from-50%">
+    <div className="perspective-[4000px] absolute inset-0 mask-b-from-50% min-w-sm">
       <div
-        className="bg-neutral-950 px-6 py-8 rounded-xl translate-y-28 translate-x-5 scale-[0.9] group-hover:scale-[1] transition-all duration-500 ease-in-out"
+        className="bg-neutral-950 px-6 py-8 rounded-xl translate-y-28 lg:translate-x-5 scale-[0.9] group-hover:scale-[1] transition-all duration-500 ease-in-out"
         style={{
           transform: "rotateY(20deg) rotateX(10deg) rotateZ(-10deg)",
         }}
       >
         <div className="flex items-center gap-4 px-4 py-2 bg-neutral-500/20 rounded-full relative group">
-          <Search className="size-4" /> <span>Product launch</span>
+          <Search className="size-4" />{" "}
+          <span className="text-sm whitespace-nowrap">Product launch</span>
         </div>
         <motion.div
           className="divide-y pt-2 ml-2"
@@ -243,7 +244,7 @@ export function ChatBox({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "border bg-neutral-950/80 rounded-tl-md p-4 max-w-lg",
+        "border bg-neutral-950/80 rounded-tl-md p-4 min-w-sm",
         className
       )}
     >
@@ -315,8 +316,8 @@ export function Card2Content() {
   ];
 
   return (
-    <div className="border bg-neutral-950/80 rounded-tl-xl p-4 scale-[0.9] max-w-lg translate-x-10 translate-y-5 mask-b-from-50%">
-      <div className="flex flex-col gap-4">
+    <div className="border bg-neutral-950/80 rounded-tl-xl p-4 scale-[0.9] min-w-sm lg:translate-x-10 md:-translate-x-5 translate-y-5 mask-b-from-50%">
+      <div className="flex flex-col gap-4 overflow-hidden">
         {messages.map((message, index) => (
           <div
             key={index}
