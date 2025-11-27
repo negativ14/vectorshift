@@ -110,14 +110,14 @@ export default function LLM() {
           <IconBox
             icon={AWSIcon}
             variant="ghost"
-            className="translate-x-43 -translate-y-38"
+            className="translate-x-43 -translate-y-42"
             iconClassName="size-10"
             title="AWS"
           />
           <IconBox
             icon={MistralIcon}
             variant="ghost"
-            className="translate-x-83 -translate-y-58"
+            className="translate-x-80.5 -translate-y-61.5"
             iconClassName="size-10"
             title="MistralIcon"
           />
