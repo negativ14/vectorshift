@@ -36,19 +36,19 @@ const steps = [
 
 export default function WorkSteps() {
   return (
-    <div>
+    <div className="border-b">
       <div className="border-y">
         <div className="h-20 md:h-30 border-x max-w-7xl mx-auto" />
       </div>
       <Container className="border-x overflow-hidden">
         <Heading
           variant="mid"
-          className="px-4 md:px-8 py-4 md:py-8 md:text-center"
+          className="py-4 md:py-8 md:text-center"
         >
           How it works
         </Heading>
 
-        <div className="flex items-center lg:justify-center gap-4 ">
+        <div className="flex overflow-scroll lg:items-center lg:justify-center gap-4 my-8">
           {steps.map((item) => (
             <motion.div key={item.step}>
               <StepCards
@@ -90,7 +90,7 @@ export function StepCards({
       {step !== 4 && (
         <div className="flex absolute right-25 top-9 items-center gap-2 bg-red-300">
           <GradientLines
-            className="h-65 w-0.5 -rotate-90"
+            className="h-65 w-0.5 -rotate-90 block"
             gradientClassName="w-1"
             delay={`${step}`}
           />
