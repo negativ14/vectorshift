@@ -97,7 +97,7 @@ export default function ProductInfo() {
             delay="0.5"
           />
 
-          {/* second */}
+          
           <div className="mask-b-from-80%">
             <div className="flex items-center">
               <div className="flex flex-col gap-4">
