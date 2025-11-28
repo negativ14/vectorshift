@@ -69,7 +69,7 @@ export function CardContent1() {
 export function CardContent2() {
   return (
     <div className="scale-[1.2] translate-x-9.5 mask-b-from-0% translate-y-6 relative">
-        <GradientLines className="-rotate-90 h-80 translate-x-40 -translate-y-30" delay="0.3" />
+        <GradientLines className="-rotate-90 h-80 translate-x-36 -translate-y-30 block" delay="0.3" />
       <Chat />
     </div>
   );
@@ -77,7 +77,7 @@ export function CardContent2() {
 
 export function CardContent3() {
   return (
-    <div className="-translate-y-30">
+    <div className="-translate-y-30 md:scale-[1.2] md:-translate-x-8">
       <Card1Content />
     </div>
   );

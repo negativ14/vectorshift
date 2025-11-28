@@ -1,5 +1,6 @@
 import Ecosystem from "@/components/bento1/ecosystem";
 import Enterprise from "@/components/bento2/enterprise";
+import FAQs from "@/components/faq";
 import Hero from "@/components/hero";
 import Integration from "@/components/integration";
 import LLM from "@/components/llm";
@@ -20,6 +21,7 @@ export default function Home() {
       <ProductInfo2 />
       <WorkSteps />
       <Enterprise />
+      <FAQs />
     </main>
   );
 }
