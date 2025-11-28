@@ -1,4 +1,4 @@
-export default function DriveIcon({ className }: { className: string }) {
+export default function DriveIcon({ className }: { className?: string }) {
   return (
     <svg
       width="24"

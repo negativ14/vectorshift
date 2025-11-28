@@ -67,7 +67,7 @@ export default function Workflow() {
                 )}
                 <Button
                   onClick={() => setActive(item.name)}
-                  variant={"ghost"}
+                  variant={"outline"}
                   className="z-0 relative text-white"
                 >
                   {item.name}

@@ -161,9 +161,14 @@ export function Card1Content() {
   );
 }
 
-export function Card3Content() {
+export function Card3Content({ className }: { className?: string }) {
   return (
-    <div className="perspective-[4000px] absolute inset-0 mask-b-from-50% min-w-sm">
+    <div
+      className={cn(
+        "perspective-[4000px] absolute inset-0 mask-b-from-50% min-w-sm",
+        className
+      )}
+    >
       <div
         className="bg-neutral-950 px-6 py-8 rounded-xl translate-y-28 lg:translate-x-5 scale-[0.9] group-hover:scale-[1] transition-all duration-500 ease-in-out"
         style={{
