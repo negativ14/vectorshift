@@ -59,18 +59,18 @@ export default function Workflow() {
           <div className="md:flex md:items-center md:justify-center grid grid-cols-2 gap-4 md:gap-8">
             {workflow.map((item) => (
               <motion.div className="rounded-lg relative" key={item.name}>
-                {item.name === active && (
-                  <motion.div
-                    layoutId="workflow"
-                    className="absolute inset-0 bg-linear-to-t from-primary to-primary/60 rounded-lg"
-                  />
-                )}
                 <Button
                   onClick={() => setActive(item.name)}
                   variant={"outline"}
                   className="z-0 relative text-white"
                 >
-                  {item.name}
+                  <span className="z-10">{item.name}</span>
+                  {item.name === active && (
+                    <motion.div
+                      layoutId="workflow"
+                      className="absolute inset-0 bg-linear-to-t from-primary to-primary/60 rounded-md"
+                    />
+                  )}
                 </Button>
               </motion.div>
             ))}

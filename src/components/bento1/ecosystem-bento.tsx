@@ -59,12 +59,12 @@ export function EcosystemCards() {
         <div className="pl-10">
           <GradientLines
             delay="0.2"
-            className="h-full w-px translate-x-40 -translate-y-50 z-10 rotate-90 block md:hidden lg:block"
+            className="h-96 w-px translate-x-40 -translate-y-50 z-10 rotate-90 block md:hidden lg:block"
             gradientClassName="h-20"
           />
           <GradientLines
             delay="0.6"
-            className="h-full w-px translate-x-40 -translate-y-45 z-10 rotate-90 block md:hidden lg:block"
+            className="h-96 w-px translate-x-40 -translate-y-45 z-10 rotate-90 block md:hidden lg:block"
             gradientClassName="h-20"
           />
 
