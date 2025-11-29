@@ -3,6 +3,7 @@ import Enterprise from "@/components/bento2/enterprise";
 import CTA from "@/components/cta";
 import DOCS from "@/components/docs";
 import FAQs from "@/components/faq";
+import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import Integration from "@/components/integration";
 import LLM from "@/components/llm";
@@ -26,6 +27,7 @@ export default function Home() {
       <DOCS />
       <FAQs />
       <CTA />
+      <Footer />
     </main>
   );
 }

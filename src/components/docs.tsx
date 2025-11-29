@@ -3,6 +3,7 @@ import Container from "./container";
 import Heading from "./heading";
 import { Button } from "./ui/button";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { ArrowUpRight } from "lucide-react";
 
 export default function DOCS() {
   const code = `from vectorshift.node import *
@@ -26,14 +27,16 @@ llm_node = OpenAI_LLMNode(`;
                 documentation.
               </p>
               <Button variant={"primary"} className="w-fit mt-4">
-                Browse documentation
+                Browse documentation <ArrowUpRight />
               </Button>
             </div>
           </div>
 
-          <div className="border rounded-t-lg flex-1 p-2 pb-0 bg-white/20">
-            <div className="border rounded-t-[8px] bg-neutral-950 h-full pt-8 relative">
-                <p className="bg-primary rounded-full px-2 py-0.5 w-fit text-xs absolute top-4 left-4">pipeline_setup.py</p>
+          <div className="border border-white/15 border-b-0 rounded-t-lg flex-1 p-2 pb-0 bg-white/10">
+            <div className="border-white/20 border rounded-t-[8px] border-b-0 bg-neutral-950 h-full pt-10 relative">
+              <p className="bg-primary rounded-full px-2 pt-0.5 pb-1 w-fit text-xs absolute top-5 left-4">
+                pipeline_setup.py
+              </p>
               <SyntaxHighlighter
                 language="python"
                 style={a11yDark}
