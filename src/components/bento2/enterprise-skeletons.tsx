@@ -69,7 +69,7 @@ export function CardContent1() {
 export function CardContent2() {
   return (
     <div className="scale-[1.2] translate-x-9.5 mask-b-from-0% translate-y-6 relative">
-        <GradientLines className="-rotate-90 h-80 translate-x-36 -translate-y-30 block" delay="0.3" />
+        <GradientLines className="-rotate-90 h-100 translate-x-36 -translate-y-40 block" delay="0.3" />
       <Chat />
     </div>
   );
@@ -100,8 +100,8 @@ const emailLines = [
 
 export function CardContent4() {
   return (
-    <div className="p-8">
-      <div className="flex flex-col gap-4 p-4 border rounded-lg mask-b-from-0%">
+    <div className="p-8 ">
+      <div className="flex flex-col gap-4 p-4 border rounded-lg mask-b-from-0%  bg-neutral-950">
         <p className="font-poppins text-lg font-medium">
           Subject line: Hi John Doe, join top companies who use App to automate
           their marketing campigns.
